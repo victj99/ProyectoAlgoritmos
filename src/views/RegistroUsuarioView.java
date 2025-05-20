@@ -25,6 +25,7 @@ public class RegistroUsuarioView extends javax.swing.JFrame {
 
         lblId.setText("Usuario: " + nombreUsuario);
 
+        this.ocultarTextosError();
         if (nombreUsuario != null) {
             Usuario usuarioExistente = UsuarioService.getInstance().obtenerPorNombreUsuario(nombreUsuario);
             txtNombreUsuario.setText(usuarioExistente.getNombreUsuario());

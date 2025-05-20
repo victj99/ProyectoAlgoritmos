@@ -49,6 +49,13 @@ public class BandejaTrabajadoresView extends javax.swing.JFrame {
             }
         }, 1, (item) -> item.isActivo() ? "icons8-basura-llena-20.png" : "icons8-restart-20.png");
 
+        // agregamos el boton de editar
+        tblDatos.agregarBoton((item) -> {
+            var view = new MovimientosAsistenciaView(item.getCodigoTrabajador());
+            view.setVisible(true);
+            this.dispose();
+        }, 2, "history-20.png");
+
         tblDatos.asignarDatos(TrabajadorService.getInstance().listarTodosDatos());
 
         var modelArea = (DefaultComboBoxModel) cbArea.getModel();
@@ -114,11 +121,11 @@ public class BandejaTrabajadoresView extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Edit", "", "Cod. trabajador", "Nombre", "DNI", "Fecha nacimiento", "Sede", "Área", "Estado"
+                "Edit", "", "Mov", "Cod. trabajador", "Nombre", "DNI", "Fecha nacimiento", "Sede", "Área", "Estado"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                true, true, false, false, false, false, false, false, false
+                true, true, true, false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {

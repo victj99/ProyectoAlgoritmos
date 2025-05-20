@@ -1,12 +1,14 @@
 package services;
 
 import entities.Area;
+import entities.Movimiento;
 import entities.Trabajador;
 import entities.Usuario;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -42,6 +44,8 @@ public class BdTemporal {
         new Area(3l, "Producción", "S2", true),
         new Area(4l, "QA", "S2", true)
     };
+    
+    private LinkedList<Movimiento> listaMovimientos = new LinkedList<>();
 
     // Getters
     public String getUsuarioActual() {
@@ -62,6 +66,10 @@ public class BdTemporal {
 
     public Area[] getListaArea() {
         return listaArea;
+    }
+
+    public LinkedList<Movimiento> getListaMovimientos() {
+        return listaMovimientos;
     }
 
 }

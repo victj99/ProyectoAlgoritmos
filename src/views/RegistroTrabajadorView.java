@@ -31,6 +31,8 @@ public class RegistroTrabajadorView extends javax.swing.JFrame {
         for (String[] item : listaSedes) {
          modelSede.addElement(new ListItem2(item[0], item[1]));
         }
+        
+        this.ocultarTextosError();
 
         if (codTrabajador != null) {
             lblId.setText("ID: " + codTrabajador);
